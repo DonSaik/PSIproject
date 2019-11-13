@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello this eshop</h1>
+    <div>
+         {% for c in categories %}
+        <a href="{% url 'products:product-filter' c.id %}"> {{ c.title }}  </a>
+        {% endfor %}
+
+        {% load mptt_tags %}
+<ul>
+    {% recursetree categories %}
+        <li>
+            {{ node.name }}
+            <a href="{% url 'products:product-filter' node.id %}"> {{ node.name}}  </a>
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+    </div>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+ <h1> footer maybe</h1>
+</body>
+</html>
