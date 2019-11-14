@@ -1,315 +1,37 @@
-
-  <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
+{% if products %}
+  {% for product in products %}
     <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
+      
+      <figure class="card card-product">
+        <a class="img-wrap" href="{% url 'product-view' product_id=product.id %}">
+          {% if product.productimage_set.first %}
+            <img
+              src="{{ product.productimage_set.first.image.url }}"
+            />
+          {% else %}
+            <img
+              src="media/other/default-image.png"
+            />
+          {% endif %}
+        </a>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots"><a  href="{% url 'product-view' product_id=product.id %}" >{{product.title}}</a></h6>
+          <div class="action-wrap">
+            <a href="{% url 'product-view' product_id=product.id %}" class="btn btn-primary btn-sm float-right cart-logo">
+              <i class="fa fa-shopping-cart"></i>
+            </a>
+            <div class="price-wrap h5">
+              <span class="price-new">{{product.price}}$</span>
+              {% comment %} <del class="price-old">$1980</del> {% endcomment %}
+            </div>
+            <!-- price-wrap.// -->
           </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-    <div class="col-md-3">
-    <figure class="card card-product">
-      <div class="img-wrap">
-        <img
-          src="https://motoday.lt/image/cache/data/striukes/odines/Spidi%202019/spidi_super_r_jacket_red_light_blue_1800x1800-650x650.jpg"
-        />
-      </div>
-      <figcaption class="info-wrap">
-        <h6 class="title text-dots"><a  href="/products/1">Biker Jacket</a></h6>
-        <div class="action-wrap">
-          <a href="/products/1" class="btn btn-primary btn-sm float-right cart-logo">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-          <div class="price-wrap h5">
-            <span class="price-new">$1280</span>
-            <del class="price-old">$1980</del>
-          </div>
-          <!-- price-wrap.// -->
-        </div>
-        <!-- action-wrap -->
-      </figcaption>
-    </figure>
-    <!-- card // -->
-  </div>
-
-
+          <!-- action-wrap -->
+        </figcaption>
+      </figure>
+      <!-- card // -->
+    </div>
+  {% endfor %}
+{% else %}
+  <p class="text-danger">Currently, there  is no products for this category...</p>
+{% endif %}

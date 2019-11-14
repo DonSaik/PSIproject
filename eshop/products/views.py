@@ -6,9 +6,15 @@ from products.models import Product, Category
 # Create your views here.
 
 
-def index(request):
-    list = Product.objects.all()
-    return render(request, 'products/allproducts.html', {'products': list})
+def get_products(request):
+    products  = Product.objects.all()
+    return products
+
+def get_categories(request):
+    return Category.objects.all()
+    
+def get_product_categories(request):
+    pass
 
 
 def detail(request, product_id):
@@ -24,4 +30,5 @@ def filter_by_category(request, category_id):
     list = Product.objects.filter(categories__in=categories)
     for c in list:
         print(c)
-    return render(request, 'products/allproducts.html', {'products': list})
+    
+    return list;

@@ -22,5 +22,6 @@ urlpatterns = [
   path('faq/', views.faq, name='faq'),
   path('about/', views.about, name='about'),
   path('contact/', views.contact, name='contact'),
-  path('products/<int:product_id>',views.product_info, name='product-view')
+  path('products/<int:product_id>',views.product_info, name='product-view'),
+  path('products/filter/<int:category_id>', views.filter_by_category, name='product-filter')
 ]
