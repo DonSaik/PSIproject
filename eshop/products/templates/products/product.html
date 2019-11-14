@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>nice</p>
+    <h4>{{ product.title }}</h4>
+{% for product_image in product.productimage_set.all %}
+    <img src="{{ product_image.image.url }}">
+{% endfor %}
+
+    {{ product.categories }}
+    <div>
+        {% for property in product.properties.all %}
+        {{ property.name }}:
+        <div>
+            {% if  property.measurement  %}
+                 {{ property.measurement }}
+            {% endif %}
+
+
+            {% if  property.description %}
+                 {{ property.description }}
+            {% endif %}
+        </div>
+
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
