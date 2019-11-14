@@ -47,7 +47,15 @@ class Product(models.Model):
         return self.title
 
 
+def upload_path_handler(instance, filename):
+    return "product_{id}/{file}".format(id=instance.product.id, file=filename)
 
 
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=  upload_path_handler)
+
+    def __str__(self):
+        return self.image.url
 
 

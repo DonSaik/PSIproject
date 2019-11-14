@@ -8,7 +8,6 @@ from products.models import Product, Category
 
 def index(request):
     list = Product.objects.all()
-
     return render(request, 'products/allproducts.html', {'products': list})
 
 
