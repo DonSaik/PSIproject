@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from products import views as product_helpers
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -9,6 +9,12 @@ def home(request, products=None):
   if not products:
     products = product_helpers.get_products(request)
     categories = product_helpers.get_categories(request)
+
+  paginator = Paginator(products, 9)
+  page = request.GET.get('page')
+  products = paginator.get_page(page)
+
+  #?page=2
 
 
   return render(request, 'frontend/home.html', {

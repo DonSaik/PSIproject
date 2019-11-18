@@ -1,0 +1,34 @@
+     <div class="pagination">
+          {% if products.has_previous %}
+          <a class="pagination-action" href="?page=1">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          </a>
+          <a
+            class="pagination-action"
+            href="?page={{ products.previous_page_number }}"
+          >
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+
+          <span class="pagination-current">{{ products.number }}</span>
+          <span class="pagination-of">of</span>
+          <span class="pagination-total"
+            >{{ products.paginator.num_pages }}</span
+          >
+
+          {% if products.has_next %}
+          <a
+            class="pagination-action"
+            href="?page={{ products.next_page_number }}"
+          >
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>
+          <a
+            class="pagination-action"
+            href="?page={{ products.paginator.num_pages }}"
+          >
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+        </div>
