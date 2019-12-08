@@ -8,7 +8,6 @@ def home(request, products=None):
 
   if not products:
     products = product_helpers.get_products(request)
-    categories = product_helpers.get_categories(request)
 
   paginator = Paginator(products, 9)
   page = request.GET.get('page')
@@ -19,7 +18,6 @@ def home(request, products=None):
 
   return render(request, 'frontend/home.html', {
     "products": products,
-    "categories": categories
     })
 
 

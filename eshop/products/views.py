@@ -10,9 +10,11 @@ def get_products(request):
     products  = Product.objects.all()
     return products
 
+
 def get_categories(request):
     return Category.objects.all()
-    
+
+
 def get_product_categories(request):
     pass
 
@@ -32,3 +34,4 @@ def filter_by_category(request, category_id):
         print(c)
     
     return list;
+
