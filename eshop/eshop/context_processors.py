@@ -1,4 +1,4 @@
-from products.models import Category
+from products.models import Category, Property
 
 def categories_list(request):
     #https://stackoverflow.com/questions/28419062/find-second-level-children-in-django-mptt
@@ -9,3 +9,18 @@ def categories_list(request):
     return {'categories': categories_list}
 
 
+def properties_list(request):
+    attributes = Property.objects.order_by('name').values('name', 'description').distinct()
+    attributes_temp =[]
+    lastName = ""
+    for att in attributes:
+        print(att['name'] )
+        if att['name'] == lastName:
+            attributes_temp.append(att)
+        else:
+            lastName=att['name']
+            attributes_temp.append({'globalName': att['name']})
+            attributes_temp.append(att)
+
+
+    return {'properties': attributes_temp}

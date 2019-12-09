@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
 
-{% block content %}
+
+
     <p>All products</p>
     {{ product.categories }}
 {{ products.0. }}
@@ -9,4 +9,3 @@
 <img src="{{ product.productimage_set.first.image.url }}">
         <a href="{% url 'products:product-details' product.id %}">{{ product.title }}  {{  product.price }}  $  </a>
     {% endfor %}
-{% endblock %}

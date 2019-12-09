@@ -1,4 +1,29 @@
 <div class="card">
+  <form method="get" action="{% url 'products:product-fil' %}" >
+    <label>MinPrice</label>
+              <input type="number" name="minPrice">
+              <label>MaxPrice</label>
+              <input type="number" name="maxPrice">
+    {% if propertiesCust %}
+        {% for prop in propertiesCust %}
+ {% if prop.globalName %}
+               <p>{{prop.globalName}}:</p>
+              {% else %}
+              <input type="checkbox"  name="{{prop.name}}" value="{{prop.description}}" checked>{{prop.description}}</br>
+              {% endif %}
+              {% endfor %}
+    {% else %}
+    {% for prop in properties %}
+                {% if prop.globalName %}
+               <p>{{prop.globalName}}:</p>
+              {% else %}
+              <input type="checkbox"  name="{{prop.name}}" value="{{prop.description}}" checked>{{prop.description}}</br>
+              {% endif %}
+              {% endfor %}
+    {% endif %}
+
+          <button type="submit">Save</button>
+        </form>
   <article class="card-group-item">
     <header class="card-header">
       <h6 class="title">Range input</h6>

@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
 
-{% block content %}
+
+
     <p>nice</p>
     <h4>{{ product.title }}</h4>
 {% for product_image in product.productimage_set.all %}
@@ -9,7 +9,7 @@
 
     {{ product.categories }}
     <div>
-        {% for property in product.properties.all %}
+        {% for property in product.property_set.all %}
         {{ property.name }}:
         <div>
             {% if  property.measurement  %}
@@ -26,4 +26,3 @@
         {% endfor %}
     </div>
 
-{% endblock %}

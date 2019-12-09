@@ -27,24 +27,25 @@ class Measurement(models.Model):
         return '%s %s' % (self.value, self.unit)
 
 
-class Property(models.Model):
-    name = models.CharField(max_length=60)
-    measurement = models.ForeignKey(Measurement, null=True, blank=True, on_delete= models.SET_NULL)
-    description = models.CharField(max_length=1000, blank=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Product(models.Model):
     title = models.CharField(max_length=30)
     price = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     productCode = models.CharField(max_length=30, default="")
     categories = models.ForeignKey(Category, default=1, blank=True, on_delete=models.CASCADE)
-    properties = models.ManyToManyField(Property)
+    quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title
+
+
+class Property(models.Model):
+    name = models.CharField(max_length=60)
+    #measurement = models.ForeignKey(Measurement, null=True, blank=True, on_delete= models.SET_NULL)
+    description = models.CharField(max_length=1000, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 def upload_path_handler(instance, filename):
