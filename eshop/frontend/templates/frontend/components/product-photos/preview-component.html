@@ -1,0 +1,44 @@
+{% load static %}
+
+      <div class="xzoom-container">
+        {% if photos %}
+        <div class="xzoom-photo-wrapper text-center">
+            <img
+            id="xzoom-default"
+            src="{{photos.0}}"
+            xoriginal="{{photos.0}}"
+            class="xzoom"
+          />
+        </div>
+
+        <div class="thumb-container text-center pt-2">
+            {% for row in thumb_rows %}
+            <div class="text-left">
+              {% for thumb in row %}
+              <a href="{{thumb}}" %}"
+                ><img
+                  class="xzoom-gallery"
+                  width="80"
+                  height="80"
+                  src="{{thumb}}"
+                  xpreview="{{thumb}}"
+                  title="The description goes here"
+              /></a>
+              {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <img
+          height="440"
+          width="400"
+          id="xzoom-default"
+          src="/media/other/default-image.png"
+          xoriginal="/media/other/default-image.png"
+          class="xzoom"
+        />
+        {% endif %}
+      </div>
+
+<script src="{% static '/test/js/foundation.min.js' %}"></script>
+<script src="{% static '/test/js/setup.js' %}"></script>

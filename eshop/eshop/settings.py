@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     'frontend',
+    'cart',
     'products.apps.ProductsConfig',
-   
+
 ]
 
 MIDDLEWARE = [
