@@ -5,33 +5,57 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% block head %}{% endblock %}
-    {% load static %}
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap -->
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% block head %}{% endblock %} {% load static %}
+
+    <link rel="stylesheet" href="{% static 'test/css/normalize.css' %}" />
+
+    <!-- NEREIKIA FOUNDATION -->
+    <!-- <link rel="stylesheet" href="{% static 'test/css/foundation.css' %}" /> -->
+    <!-- <link rel="stylesheet" href="{% static 'test/css/demo.css' %}" /> -->
+
+    <link href="{% static '/css/xzoom.css' %}" rel="stylesheet" />
+
+    <script src="{% static '/test/js/vendor/jquery.js' %}"></script>
+
+    <!-- xzoom plugin here -->
+    <script src="{% static '/js/xzoom.js' %}"></script>
+    <script src="{% static '/test/hammer.js/1.0.5/jquery.hammer.min.js' %}"></script>
+    <!--[if lt IE 9
+      ]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script
+    ><![endif]-->
+    <link
+      rel="stylesheet"
+      href="{% static '/test/fancybox/source/jquery.fancybox.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static '/test/magnific-popup/css/magnific-popup.css' %}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
+  </head>
 
   <body>
-
-      {% include "frontend/header/header.html" %}
-
+    {% include "frontend/header/header.html" %}
 
     <main class="d-flex flex-column container-fluid content">
       {% block content %}{% endblock %}
     </main>
-    
+
     {% include "frontend/footer/footer.html" %}
     <!-- Footer -->
-<!-- jQuery -->
-<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
 
-<!-- Popper.js -->
-<script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-<!-- Bootstrap -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-
+    <script src="{% static '/test/fancybox/source/jquery.fancybox.js' %}"></script>
+    <script src="{% static '/test/magnific-popup/js/magnific-popup.js' %}"></script>
   </body>
 </html>

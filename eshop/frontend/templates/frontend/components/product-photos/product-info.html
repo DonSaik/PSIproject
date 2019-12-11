@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <h1 class="tabe-caption">Product Details</h1>
+  <table class="table product-detail__table">
+    <tbody>
+      <tr>
+        <td>Price</td>
+        <td>{{ product.price }}$</td>
+      </tr>
+      <tr>
+        <td>Title</td>
+        <td>{{ product.title }}</td>
+      </tr>
+      <tr>
+        <td>Quantity</td>
+        <td>{{ product.quantity }}</td>
+      </tr>
+      <tr>
+        <td>Product Code</td>
+        <td>{{ product.productCode }}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{ product.categories }}</td>
+      </tr>
+      {% for prop in properties %}
+      <tr>
+        <td>{{prop}}</td>
+        <td>{{prop.description}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
