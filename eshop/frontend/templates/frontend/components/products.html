@@ -5,7 +5,7 @@
       {% if product.productimage_set.first %}
       <img src="{{ product.productimage_set.first.image.url }}" />
       {% else %}
-      <img src="media/other/default-image.png" />
+      <img src="/media/other/default-image.png" />
       {% endif %}
     </a>
     <figcaption class="info-wrap">

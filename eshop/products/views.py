@@ -46,7 +46,6 @@ def filter_by_category(request, category_id):
 
 
 def filter_by(request):
-
     try:
         minPrice = Decimal(request.GET['minPrice'])
     except:
@@ -72,3 +71,7 @@ def filter_by(request):
     return render(request, 'products/allproducts.html', {
         'products': product_list,
     })
+
+def search_products(query):
+    return Product.objects.filter(title__icontains=query)
+
