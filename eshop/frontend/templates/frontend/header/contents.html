@@ -1,5 +1,5 @@
 <div class="meta d-flex align-items-center">
-  <a id="brand" href="#" class="meta__logo pl-3 pr-3 nav-link">
+  <a id="brand" href="/" class="meta__logo pl-3 pr-3 nav-link">
     <h1 class="header__contents__logo d-flex">
       <span class="header__contents__logo__part-1 ">e</span>
       <span class="header__contents__logo__part-2">-shop</span>
@@ -33,7 +33,21 @@
 </div>
 <div class="profile d-flex">
   <div class="profile__account">
-    <i class="fa fa-user nav-profile-icon"></i>
+    {% if user.is_authenticated %}
+    <a href="/signout" class="profile__auth--profile">
+      Logout
+    </a>
+    <a href="/profile" class="profile__auth--profile">
+      My Profile
+    </a>
+    {% else %}
+    <a href="/signup" class="profile__auth--signup">
+      Sign Up
+    </a>
+    <a href="/signin" class="profile__auth--signin">
+      Sign In
+    </a>
+    {% endif %}
   </div>
   <a href="/cart" class="profile__cart">
     <i class="fa fa-shopping-cart nav-cart-icon"

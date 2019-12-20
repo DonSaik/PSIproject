@@ -45,6 +45,7 @@
     {% include "frontend/header/header.html" %}
 
     <main class="d-flex flex-column container-fluid content">
+      {% include "frontend/components/message-handler.html" %}
       {% block content %}{% endblock %}
     </main>
 
