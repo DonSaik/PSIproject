@@ -6,23 +6,25 @@
     </h1>
   </a>
   <div class="meta__search pr-1 pl-1">
-    <form class="form-inline my-2 my-lg-0">
+    <form id="search-form" action="/search/" class="form-inline my-2 my-lg-0" method="POST">
+      {% csrf_token %}
       <div class="input-group">
         <span class="input-group-prepend">
           <div class="input-group-text bg-transparent border-right-0">
             <i class="fa fa-search"></i>
           </div>
         </span>
-        <input
+
+
+        <input name="term"
           class="form-control py-2 border-left-0 border"
-          type="search"
-          value="..."
+          type="search" placeholder="Jacket"
           id="example-search-input"
         />
         <span class="input-group-append">
           <button
             class="btn btn-outline-secondary border-left-0 border"
-            type="button"
+            type="submit"
           >
             Search
           </button>
@@ -57,3 +59,9 @@
     >
   </a>
 </div>
+
+
+<script>
+  document.querySelector('#search-form').addEventListener('submit', () => {
+
+</script>

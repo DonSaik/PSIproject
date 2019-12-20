@@ -14,14 +14,21 @@ import math
 
 def home(request, products=None, message=None):
 
+
     if not products:
         products = product_helpers.get_products(request)
 
-    paginator = Paginator(products, 9)
+
+    if request.POST.get('term'):
+        term = request.POST.get('term')
+        products = product_helpers.search_products((term))
+        paginator = Paginator(products, len(products))
+    else:
+        paginator = Paginator(products, 9)
+
+
     page = request.GET.get('page')
     products = paginator.get_page(page)
-
-    # ?page=2
 
     return render(request, 'frontend/home.html', {
         "products": products,
@@ -160,3 +167,7 @@ def sign_out(request):
     logout(request)
     return redirect('home')
 
+
+
+def search_filter(request):
+    print("OK!")
