@@ -13,15 +13,18 @@ import math
 
 
 def home(request, products=None, message=None):
-
+    term = request.POST.get('term')
 
     if not products:
         products = product_helpers.get_products(request)
 
 
-    if request.POST.get('term'):
+    if term:
         term = request.POST.get('term')
         products = product_helpers.search_products((term))
+
+
+    if term and len(products) > 0:
         paginator = Paginator(products, len(products))
     else:
         paginator = Paginator(products, 9)
