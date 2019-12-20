@@ -68,9 +68,10 @@ def filter_by(request):
     product_list = Product.objects.filter(
         property__in=attributes, price__gte=minPrice, price__lte=maxPrice).distinct()
 
-    return render(request, 'products/allproducts.html', {
-        'products': product_list,
-    })
+    return product_list
+    # return render(request, 'products/allproducts.html', {
+    #     'products': product_list,
+    # })
 
 def search_products(query):
     return Product.objects.filter(title__icontains=query)

@@ -30,5 +30,6 @@ urlpatterns = [
     path('signout/', views.sign_out, name='signout'),
     path('products/<int:product_id>', views.product_info, name='product-view'),
     path('products/filter/<int:category_id>',
-         views.filter_by_category, name='product-filter')
+         views.filter_by_category, name='product-filter'),
+    path('filter/', views.filter_by_props, name='filter_props')
 ]
