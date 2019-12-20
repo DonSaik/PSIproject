@@ -1,15 +1,18 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from products import views as product_helpers
 from cart import views as cart_helpers
 from django.core.paginator import Paginator
 from products.models import Property
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
+from frontend.validators import len_validator, password_validator, unique_validator
 import math
 
 # Create your views here.
 
 
-def home(request, products=None):
+def home(request, products=None, message=None):
 
     if not products:
         products = product_helpers.get_products(request)
@@ -87,3 +90,73 @@ def about(request):
 def cart(request):
     cart_info = cart_helpers.test_request(request)
     return render(request, 'frontend/components/cart/index.html')
+
+
+def auth_redirect(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+
+def signin(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
+    if request.method == 'GET':
+
+        return render(request, 'frontend/signin.html')
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+        else:
+            data = {
+                "message": {
+                    "type": 'error-msg',
+                    "content": "Invalid Credentials.. Try again!"
+                }
+            }
+            return  render(request, 'frontend/signin.html', data)
+
+def signup(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    if request.method == 'GET':
+        return render(request, 'frontend/signup.html')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirmation = request.POST.get('confirmation')
+
+
+        message = len_validator(username, 4, 50)
+        message = len_validator(password, 4, 50)
+        message = len_validator(confirmation, 4, 50)
+        message = password_validator(password, confirmation)
+
+        if message['content'] == "":
+            message = unique_validator(lambda: User.objects.filter(username=username), "Username already exists!")
+            if message['content'] == "":
+                user = User.objects.create_user(username=username, password=password)
+                print(user)
+                message['type'] = "success-msg"
+                message["content"] = "Successfully created!"
+
+        if message['content'] != "":
+            data = {
+                "message" : message
+            }
+
+        return render(request, 'frontend/signup.html', data)
+
+def sign_out(request):
+    logout(request)
+    return redirect('home')
+

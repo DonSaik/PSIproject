@@ -1,0 +1,43 @@
+{% extends "frontend/base.html" %} {% block content %}
+<div class="container container--auth">
+  <form class="form-signup" action="/signup/" method="POST">
+        {% csrf_token %}
+    <h1 class="h2 mb-3 font-weight-normal">Sign Up</h1>
+    <hr />
+    <label for="username" class="sr-only"> Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      placeholder="Username"
+      required
+      autofocus
+    />
+    <label for="password" class="sr-only"> Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      placeholder="Password"
+      required
+    />
+    <label for="confirmation" class="sr-only"> Confirm Password</label>
+    <input
+      type="confirmation"
+      id="confirmation"
+      name="confirmation"
+      class="form-control"
+      placeholder="Confirm Password"
+      required
+    />
+    <div class="checkbox mb-3">
+      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+    </div>
+    <button class="btn btn-lg btn-warning btn-block" type="submit">
+      Sign up
+    </button>
+  </form>
+</div>
+{% endblock %}

@@ -89,7 +89,7 @@ main {
   border-radius: 2rem 2rem;
 }
 .card-product:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
   visibility: hidden;
@@ -370,4 +370,48 @@ tr:nth-of-type(odd) {
 .buy-button:hover {
   background-color: #4a90e2 !important;
   color: white !important;
+}
+
+a.profice__auth {
+  color: red !important;
+}
+
+/*  SIGN IN*/
+.container--auth {
+  padding: 3rem;
+}
+.container--auth > form > h1 {
+  font-size: 2.6rem;
+  font-weight: bold !important;
+}
+.container--auth > form > input {
+  font-size: 2.5rem;
+  margin: 1.8rem 0 1.8rem 0;
+}
+.container--auth > form > button {
+  font-size: 2.5rem;
+  margin: 1.8rem 0 1.8rem 0;
+  color: white;
+  font-weight: bold;
+}
+.container--auth > form > button:hover,
+.container--auth > form > button:focus {
+  font-size: 2.5rem;
+  margin: 1.8rem 0 1.8rem 0;
+  color: whitesmoke !important;
+  font-weight: bold;
+}
+
+
+/* MESSAGE SYSTEM COMPONENT*/
+.message-box {
+    padding: 3rem;
+}
+.error-msg {
+    color: #FF4136;
+    font-size: 2rem;
+}
+.success-msg {
+    color: #2ECC40;
+    font-size: 2rem;
 }
