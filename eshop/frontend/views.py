@@ -172,5 +172,8 @@ def sign_out(request):
 
 
 
-def search_filter(request):
-    print("OK!")
+def filter_by_props(request):
+    print("sadddddddddddddddddddddddd")
+    filtered = product_helpers.filter_by(request)
+    print(len(filtered))
+    return home(request, products=filtered)

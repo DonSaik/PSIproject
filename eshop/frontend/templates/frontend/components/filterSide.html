@@ -1,7 +1,7 @@
 <div class="cardx">
     <h1>Select Filters</h1>
     <hr />
-    <form method="GET" action="{% url 'products:product-fil' %}">
+    <form method="GET" action="/filter/">
         <div class="d-flex flex-column justify-content-around ">
             {% if propertiesCust %}
                 {% for prop in propertiesCust %}
@@ -12,7 +12,7 @@
                             </div>
                         {% else %}
                             <div class="d-flex flex-row">
-                                    <span class="check-input"><input   class="form-control" type="checkbox" name="{{prop.name}}" value="{{prop.description}}" checked></span>
+                                    <span class="check-input"><input   class="form-control" type="checkbox" name="{{prop.name}}" value="{{prop.description}}" id="prop-{{prop.pk}}" checked></span>
                                     <span>{{prop.description}}</span>
                             </div>
                         {% endif %}
@@ -27,7 +27,7 @@
                         </div>
                     {% else %}
                         <div class="d-flex flex-row">
-                                <span class="check-input"><input   class="form-control" type="checkbox" name="{{prop.name}}" value="{{prop.description}}" checked></span>
+                                <span class="check-input"><input   id="prop-{{prop.pk}}" class="form-control" type="checkbox" name="{{prop.name}}" value="{{prop.description}}" checked></span>
                                 <span>{{prop.description}}</span>
                         </div>
                     {% endif %}
@@ -42,11 +42,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Min</label>
-                        <input type="number" class="form-control" id="inputEmail4" placeholder="$0" />
+                        <input value="0" name="minPrice" type="number" class="form-control" id="inputEmail4" placeholder="$0" />
                     </div>
                     <div class="form-group col-md-6 text-right">
                         <label>Max</label>
-                        <input type="number" class="form-control" placeholder="$1,0000" />
+                        <input  value="16500" name="maxPrice" type="number" class="form-control" placeholder="$1,0000" />
                     </div>
                 </div>
             </div>
