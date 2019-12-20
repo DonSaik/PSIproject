@@ -1,22 +1,28 @@
 {% extends "frontend/base.html" %} {% block content %}
 
 <div class="container-fluid">
-  <div class="row p-4">
-    <div class="col-md-2 side-menu-container">
-      <div class="row">
-        {% include "frontend/components/filterSide.html" %}
+  <div class="row p-4 justify-content-between">
+    <div class="col-md-3 side-menu-container">
+      <div class="row ">
+        <div class="container p-4" style="border: 1px solid gainsboro">
+          {% include "frontend/components/filterSide.html" %}
+        </div>
       </div>
     </div>
-    <div class="col-md-10 product-container d-flex flex-column ">
+    <div class="col-md-8 product-container ">
       <div class="row flex-column  ">
         <div class="col">
           <div class="row">
-            {% include "frontend/components/products.html" %}
+
+              {% include "frontend/components/products.html" %}
+
           </div>
         </div>
+        {% if products %}
         <div class="col justify-content-center pagination">
           {% include "frontend/components/product-pagination.html" %}
         </div>
+        {% endif %}
       </div>
     </div>
 

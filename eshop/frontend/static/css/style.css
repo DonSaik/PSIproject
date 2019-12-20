@@ -415,3 +415,20 @@ a.profice__auth {
     color: #2ECC40;
     font-size: 2rem;
 }
+
+
+/* FILTER SIDE*/
+#update-prop-btn {
+    padding: 1rem !important;
+    font-size: 1.85rem;
+    width: 100%;
+}
+
+.check-input {
+    height: 25px;
+    width: 25px;
+}
+
+.prop-container {
+    border: 1px solid red;
+}
